@@ -1,3 +1,4 @@
+import threading
 from rest_framework import generics
 from form.Functions import SendEmail
 from form.models import FormUser
@@ -10,5 +11,5 @@ class Users(generics.ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         response = super(Users, self).create(request, *args, **kwargs)
-        SendEmail(response.data)
+        threading.Thread(target=SendEmail, args=response.data).start()
         return response
