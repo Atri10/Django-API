@@ -11,5 +11,5 @@ class Users(generics.ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         response = super(Users, self).create(request, *args, **kwargs)
-        threading.Thread(target=SendEmail, args=response.data).start()
+        threading.Thread(target=SendEmail, args=[response.data]).start()
         return response
