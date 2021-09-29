@@ -21,6 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+os.environ.__setitem__("DJANGO_SECRET_KEY", "4M5$*oFBw=^e_G{:(0J.sojPj=CdNvb)jkb!02;RhD>=)U7_f5lSV/Unt^0g}??")
+os.environ.__setitem__("EMAIL_ADDRESS", "atri.codes369@gmail.com")
+os.environ.__setitem__("EMAIL_PORT", "587")
+os.environ.__setitem__("PASSWORD", "Iamwayne147")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
@@ -48,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'form.apps.FormConfig',
     'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -59,10 +64,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'StackFusion.urls'
-
+CORS_ORIGIN_ALLOW_ALL = True
 if not DEBUG:
     REST_FRAMEWORK = {
         'DEFAULT_RENDERER_CLASSES': (
@@ -142,4 +148,5 @@ STATIC_ROOT = BASE_DIR / 'templates' / "static"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 django_heroku.settings(locals())
