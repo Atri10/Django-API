@@ -21,10 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-os.environ.__setitem__("DJANGO_SECRET_KEY", "4M5$*oFBw=^e_G{:(0J.sojPj=CdNvb)jkb!02;RhD>=)U7_f5lSV/Unt^0g}??")
-os.environ.__setitem__("EMAIL_ADDRESS", "atri.codes369@gmail.com")
-os.environ.__setitem__("EMAIL_PORT", "587")
-os.environ.__setitem__("PASSWORD", "Iamwayne147")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
