@@ -17,5 +17,3 @@ An <b>asynchronous</b> email containing user details will be sent to user.</h4>
 }
 ```
 <h4>4. To retrive data send <b>GET</b> request to same URL</h4>
-
-
